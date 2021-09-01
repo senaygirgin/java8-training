@@ -1,5 +1,8 @@
 package com.sesegi.anonymousclasses;
 public class HelloWorldAnonymousClasses {
+	
+
+	int a = 10;
   
     interface HelloWorld {
         public void greet();
@@ -7,6 +10,11 @@ public class HelloWorldAnonymousClasses {
     }
   
     public void sayHello() {
+    	
+    	int b = 20;
+    	final int c = 30;
+    	a = a*2;
+//    	b = b*2;
         
         class EnglishGreeting implements HelloWorld {
             String name = "world";
@@ -45,6 +53,22 @@ public class HelloWorldAnonymousClasses {
         englishGreeting.greet();
         frenchGreeting.greetSomeone("Fred");
         spanishGreeting.greet();
+        
+        HelloWorld myGreeting = new HelloWorld(){
+
+			public void greet() {
+				greetSomeone("Senay");
+			}
+
+			public void greetSomeone(String someone) {
+				System.out.println("Hi, " + someone + a + b + c);
+			}
+        };
+        a = a*3;
+//        b = b*3;
+        
+        myGreeting.greet();
+        
     }
 
     public static void main(String... args) {
