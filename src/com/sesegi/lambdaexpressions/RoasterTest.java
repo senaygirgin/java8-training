@@ -46,17 +46,15 @@ public class RoasterTest {
 	}
 	
 	public static void main(String[] args) {
-		List<Person> personList = new ArrayList<Person>();
-		personList.add(new Person("Joe", LocalDate.of(1980, 6, 25), Sex.MALE, "joe@joe.com"));
-		personList.add(new Person("Georgiana", LocalDate.of(2000, 2, 12), Sex.FEMALE, "georgiana@georgiana.com"));
-		personList.add(new Person("Kim", LocalDate.of(1978, 9, 3), Sex.MALE, "kim@kim.com"));
-		personList.add(new Person("Chen", LocalDate.of(1990, 12, 30), Sex.FEMALE, "chen@chen.com"));
+		List<Person> personList = Person.createList();
 		
 		printPersonsOlderThan(personList, 35);
 		printPersonsWithPredicate(personList, p -> p.getAge() > 25 && p.getGender() == Sex.FEMALE);
 		processPersons(personList, p -> p.getAge() > 18 && p.getGender() == Sex.MALE, p -> System.out.println(p.getEmailAddress()));
 		processPersons(personList, p -> p.getAge() > 18 && p.getGender() == Sex.MALE, p -> p.printPerson());
-		processElements(personList, p -> p.getAge() > 18 && p.getGender() == Sex.MALE, p -> p.getEmailAddress(), r -> System.out.println(r));
+		processElements(personList, p -> p.getAge() > 18 && p.getGender() == Sex.MALE, p -> p.getEmailAddress(), p -> System.out.println(p));
+		System.out.println("==== STREAM ====");
+		personList.stream().filter( p -> p.getAge() > 18 && p.getGender() == Sex.MALE).map(p -> p.getEmailAddress()).forEach(System.out::println);
 	}
 
 }
