@@ -3,6 +3,7 @@ package com.sesegi.lambdaexpressions;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.OptionalDouble;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -55,6 +56,9 @@ public class RoasterTest {
 		processElements(personList, p -> p.getAge() > 18 && p.getGender() == Sex.MALE, p -> p.getEmailAddress(), p -> System.out.println(p));
 		System.out.println("==== STREAM ====");
 		personList.stream().filter( p -> p.getAge() > 18 && p.getGender() == Sex.MALE).map(p -> p.getEmailAddress()).forEach(System.out::println);
+		
+		OptionalDouble manAverageAge = personList.stream().filter(a->a.getGender() == Sex.MALE).mapToInt(b->b.getAge()).average();
+		manAverageAge.ifPresent(System.out::println);
 	}
 
 }

@@ -37,7 +37,7 @@ public class MethodReferencesExamples {
 		System.out.println(app.applyOperator("hello", "world", app::appendStrings));
 		System.out.println(app.applyOperator("hello", "world", String::concat));
 		
-		System.out.println(applyFuntion("hello", "world", (a, b) -> a.concat(b)));
+//		System.out.println(applyFuntion( "hello", "world", (a, b) -> a.concat(b) ));
 		System.out.println(applyFuntion("hello", "world", MethodReferencesExamples::appendStringsStatically));
 		System.out.println(applyFuntion("hello", "world", app::appendStrings));
 		System.out.println(applyFuntion("hello", "world", String::concat));
