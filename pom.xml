@@ -3,6 +3,12 @@
   <groupId>com.sesegi</groupId>
   <artifactId>java8-training</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  
+  <modules>
+  	<module>from-oracle-docs</module>
+  </modules>
+  
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
@@ -16,4 +22,5 @@
       </plugin>
     </plugins>
   </build>
+  
 </project>
